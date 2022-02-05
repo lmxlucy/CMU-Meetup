@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_05_163851) do
+ActiveRecord::Schema.define(version: 2022_02_05_175029) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 2022_02_05_163851) do
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.time "date"
     t.integer "limit"
     t.integer "group_id"
     t.datetime "created_at", null: false
@@ -53,6 +52,8 @@ ActiveRecord::Schema.define(version: 2022_02_05_163851) do
     t.boolean "online"
     t.string "location"
     t.string "image"
+    t.time "start_time"
+    t.time "end_time"
     t.index ["group_id"], name: "index_events_on_group_id"
   end
 

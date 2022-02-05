@@ -19,5 +19,4 @@ module Contexts
     create_users
     create_event_users
   end
-  
 end
