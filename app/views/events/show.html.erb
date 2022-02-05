@@ -1,29 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
+<div id="page-wrapper">
+  <div id="header"> 
+    <%= link_to 'Edit', edit_event_path(@event) %> |
+    <%= link_to 'Back', events_path %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+    <p><%=@event.date.strftime("%B %d, %Y")%></p>
+    <h1><%= @event.title %></h1>
 
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
+    <p>
+      Hosted by
+      <%= @event.group %>
+    </p>
+  </div>
 
-<p>
-  <strong>Limit:</strong>
-  <%= @event.limit %>
-</p>
 
-<p>
-  <strong>Group:</strong>
-  <%= @event.group %>
-</p>
+  <div class="row"> 
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+    <div class="col s9">
+      <p>
+        <h3>Details</h3>
+        <%= @event.description %>
+      </p>
+
+      <p>
+        <strong>Limit:</strong>
+        <%= @event.limit %>
+      </p>
+    </div>
+
+    <div id="col s3">
+      <h2><%= @event.title %></h2>
+      
+    </div>
+
+  </div>
+</div>
