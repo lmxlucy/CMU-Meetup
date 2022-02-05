@@ -12,25 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2022_02_05_163851) do
 
-  create_table "add_fields_to_events", force: :cascade do |t|
-    t.boolean "online"
-    t.string "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "add_image_to_events", force: :cascade do |t|
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "add_image_to_users", force: :cascade do |t|
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "comments", force: :cascade do |t|
     t.string "content"
     t.boolean "is_public", default: true
