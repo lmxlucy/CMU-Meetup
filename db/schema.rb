@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_05_135316) do
+ActiveRecord::Schema.define(version: 2022_02_05_163851) do
+
+  create_table "add_fields_to_events", force: :cascade do |t|
+    t.boolean "online"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "add_image_to_events", force: :cascade do |t|
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "add_image_to_users", force: :cascade do |t|
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -50,6 +69,9 @@ ActiveRecord::Schema.define(version: 2022_02_05_135316) do
     t.integer "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "online"
+    t.string "location"
+    t.string "image"
     t.index ["group_id"], name: "index_events_on_group_id"
   end
 
@@ -93,6 +115,7 @@ ActiveRecord::Schema.define(version: 2022_02_05_135316) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "bio"
+    t.string "image"
   end
 
 end
