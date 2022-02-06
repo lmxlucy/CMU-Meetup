@@ -1,6 +1,8 @@
 class Group < ApplicationRecord
 # Relationships
+  has_many :group_tags
   has_many :tag, through: :group_tags
+  has_many :group_users
   has_many :user, through: :group_users
   has_many :events
   
