@@ -1,11 +1,16 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
 
+  def search
+    redirect_back(fallback_location: events_path) if params[:query].blank?
+    @query = params[:query]
+    @events = Event.search(@query)
+    @total_hits = @events.size
+  end
+
   # GET /events or /events.json
   def index
-    @events = Event.all
-    @num_attendees = EventUser.for_event(@event).count
-    @tags = EventTag.for_event(@event).find
+    @events = Event.all.chronological
   end
 
   # GET /events/1 or /events/1.json

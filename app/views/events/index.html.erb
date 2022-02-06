@@ -1,28 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<div id="content">
-  <h1>CMU Meetup</h1>
+<div class="standard-width">
+  <%= render :partial => "partials/filter_and_search" %>
 
   <%# <%= button_to "Log In with Google", '/auth/google_oauth2', method: :post%> 
-
-  <div id="class-summary-wrapper">
+  <div class="cards">
     <% @events.each do |event| %>
-      <%= link_to 'Show', event %>
-      <div class="event-summary-card">
-        <img src=<%=@event.image%> alt=<%=@event.title%>>
-        <p><%=@event.start_time.strftime("%b %d %I:%M %p")%> - <%=@event.end_time.strftime("%b %d %I:%M %p")%></p>
-        <h3><%=@event.title%>
-        <p><%=@event.location%></p>
-        <br><br>
-        <p><%=@num_attendees%> attendees</p>
-        <p><%=@tags.each do |tag| %>
-          #<%=tag%>
-        <% end %>
-      </div>
+      
+        <div class="card">
+          <%= link_to event do %>
+            <img class="image-size" src=<%=event.image%> alt=<%=event.title%>><br>
+            <p class="grey-bold-small"><%=event.start_time.strftime("%b %d %I:%M %p")%> - <%=event.end_time.strftime("%b %d %I:%M %p")%></p>
+            <h3><%=event.title%></h3>
+            <p class="grey-light"><%=event.location%></p>
+            <p class="grey-light"><%=event.event_users.count%> attendees</p>
+          <% end %>
+        </div>
+      
     <% end %>
   </div>
-
   <br>
 </div>
-
-<%= link_to 'New Event', new_event_path %>

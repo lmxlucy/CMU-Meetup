@@ -1,0 +1,18 @@
+  <div class="row">
+    <div class="col s8">
+      <h1 class="logo">CMU Meetup </h1>
+    </div>
+    
+    <div class="col s3">
+      
+      <%= form_with url: search_path, method: :get, class: "form-inline", id: "search" do %>
+          <%= text_field_tag 'query', '', placeholder: "Search ..." %>
+      <% end %>
+
+    </div>
+
+    <div class="col s1">
+      <span class="material-icons move-down">filter_list</span>
+    </div>
+  </div>
+  

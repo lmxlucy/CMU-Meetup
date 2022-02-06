@@ -20,6 +20,8 @@ class Event < ApplicationRecord
   scope :available, -> { where('limit >?', self.event_users.count) }
   # for_group: return events of the given group
   scope :for_group, ->(group) { where(group: group) }
+  # search
+  scope :search, ->(term) { where('title LIKE ? OR description LIKE ?', "#{term}%", "#{term}%") }
 
 # Validations
   validates_presence_of :title, :description, :start_time, :end_time

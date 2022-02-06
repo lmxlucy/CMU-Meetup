@@ -31,16 +31,6 @@
     <%= time_field("event", "end_time", min: Date.today)%>
   </div>
 
-  <div class="field">
-    <%= form.label :limit %>
-    <%= form.number_field :limit %>
-  </div>
-
-  <div class="field">
-    <%= form.label :group_id %>
-    <%= form.text_field :group_id %>
-  </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>

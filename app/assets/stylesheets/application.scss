@@ -16,10 +16,6 @@
 
 @import "materialize";
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
-
-* {
-}
-
 div {
     margin: 0;
 }
@@ -40,6 +36,24 @@ h3 {
     font-size: 18px;
     font-weight: bold;
     margin: 5px 0;
+    color: black;
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+    color: black;
+}
+
+.link {
+    text-decoration: underline;
+    color: black;
+}
+
+.logo {
+    color: rgb(204, 0, 0);
+    font-family: Source Serif Pro;
 }
 
 p {
@@ -47,31 +61,39 @@ p {
     margin: 0;
 }
 
+.grey-bold-small {
+    color: rgb(90, 90, 90);
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.smaller-font {
+    font-size: 12px;
+}
+
 strong {
     font-weight: bold;
     margin: 0;
 }
 
-//materialize changes
-.row .col {
-    padding: 20px;
+.standard-width {
+    width: 60%;
+    margin: auto;
 }
 
-// event index styling
-.class-summary-wrapper {
-    display: flex;
-    flex-wrap: wrap;
+.icon-lg-size {
+    font-size: 40px;
+    color: rgb(204, 0, 0);
 }
 
-.event-summary-card {
-    min-width: 300px;
-    height: 300px;
-    background: black;
+.grey-light {
+    color: rgb(90, 90, 90);
+    font-weight: normal;
 }
 
 // event show styling
 #page-wrapper {
-    background-color: rgb(216, 216, 216);
+    background-color: rgb(238, 238, 238);
 }
 
 #header {
@@ -81,14 +103,17 @@ strong {
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.247);
 }
 
-#content {
-    padding: 20px;
-}
-
 .card {
     padding: 20px;
     background-color: white;
     border-radius: 20px;
+    flex: 0 1 30%;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 img {
@@ -96,9 +121,15 @@ img {
     max-height: 500px;
     border-radius: 20px;
 }
+
 .card .material-icons {
     position: relative;
     top: 5px;
+}
+
+.move-down {
+    position: relative;
+    top: 15px;
 }
 
 .sticky {
@@ -106,9 +137,13 @@ img {
     top: 0;
 }
 
+.icon-black {
+    color: rgb(65, 65, 65);
+}
+
 .btn {
     border-radius: 20px;
-    color: black;
     letter-spacing: 0;
     margin-right: 10px;
+    font-weight: bold;
 }

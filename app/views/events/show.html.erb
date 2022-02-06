@@ -3,20 +3,24 @@
 <div id="page-wrapper">
   <div id="header"> 
     <%# <%= link_to 'Edit', edit_event_path(@event) | %> 
-    <%= link_to 'Back', events_path %>
+    <div class="standard-width">
 
-    <p><%=@event.start_time.strftime("%B %d, %Y")%></p>
-    <h1><%= @event.title %></h1>
+      <%= link_to events_path do %>
+        <span class="material-icons">arrow_back</span>
+      <% end %>
 
-    <p>
-      Hosted by
-      <%= @event.group.name %>
-    </p>
+      <p><%=@event.start_time.strftime("%B %d, %Y")%></p>
+      <h1><%= @event.title %></h1>
+
+      
+      Hosted by <%= link_to @event_organizer do %><span class="link"><%= @event_organizer.username %></span><% end %>
+      
+    </div>
   </div>
 
 
-  <div class="row"> 
-
+  <div class="row standard-width"> 
+    <br>
     <div class="col s8">
       
       <img src=<%=@event.image%> alt=<%=@event.title%>>
@@ -25,14 +29,16 @@
         <h3>Details</h3>
         <%= @event.description %>
       </p>
-
+      <br><br>
     </div>
 
     <div class="col s4 sticky">
-      <div class="card">
-        <h3><%= @event.title %></h3>
-        <p>Hosted by <%=@event_organizer.username%></p> 
-      </div>
+      <% if !@event.group.nil? %>
+        <div class="card">
+          <%= link_to @event.group do %><h4><%= @event.group.name %></h4><% end %>
+          <p>public group</p>
+        </div>
+      <% end %>
 
       <div class="card">
         <p>
@@ -50,18 +56,16 @@
       </div>
 
       <div class="group">
-        <a class="btn white">
+        <a class="btn red">
           attend
         </a>
-        <a class="btn white">
+        <a class="btn white icon-black">
           <i class="material-icons">share</i>
         </a>
-        <a class="btn white">
+        <a class="btn white icon-black">
           <i class="material-icons">star</i>
         </a>
       </div>
-      
     </div>
-
   </div>
 </div>

@@ -1,0 +1,22 @@
+<h5>Search result for term <em>'<%= @query %>'</em> resulted in <%= pluralize(@total_hits, 'hit') %></h5>
+<p class="supertiny">&nbsp;</p>
+
+<% unless @events.empty? %>
+  <p><em><strong>Events matching term '<%= @query %>'</strong></em></p>
+  <ul>
+    <div class="cards">
+      <% for event in @events do %>
+        <div class="card">
+            <%= link_to event do %>
+              <img class="image-size" src=<%=event.image%> alt=<%=event.title%>><br>
+              <p class="grey-bold-small"><%=event.start_time.strftime("%b %d %I:%M %p")%> - <%=event.end_time.strftime("%b %d %I:%M %p")%></p>
+              <h3><%=event.title%></h3>
+              <p class="grey-light"><%=event.location%></p>
+              <p class="grey-light"><%=event.event_users.count%> attendees</p>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
+  </ul>
+  <p class="smtext">&nbsp;</p>
+<% end %>
