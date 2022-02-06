@@ -1,7 +1,9 @@
 class Event < ApplicationRecord
 # Relationships
   belongs_to :group, optional: true
+  has_many :event_tags
   has_many :tag, through: :event_tags
+  has_many :event_users
   has_many :user, through: :event_users
   has_many :comment
 
@@ -22,5 +24,6 @@ class Event < ApplicationRecord
 # Validations
   validates_presence_of :title, :description, :start_time, :end_time
   validates_date :start_time, on_or_after: ->{ Time.current }, on_or_after_message: "cannot be in the past"
-  validates_date :end_time, on_or_after: ->{ Time.current }, on_or_after_message: "cannot be in the past"
+  validates_date :end_time, on_or_after: ->{ start_time }, on_or_after_message: "cannot be before start time"
+
 end
