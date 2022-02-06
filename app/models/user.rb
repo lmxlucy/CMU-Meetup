@@ -9,7 +9,7 @@ class User < ApplicationRecord
   scope :alphabetical, -> { order(:username) }
 
 # Validations
-  validates_presence_of :email, :password_digest, :username, :admin
+  validates_presence_of :email, :password_digest, :username
   validates_uniqueness_of :email
   validates_presence_of :password, :on => :create 
   validates_presence_of :password_confirmation, :on => :create 
