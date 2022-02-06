@@ -1,6 +1,8 @@
 class User < ApplicationRecord
 # Relationships
+  has_many :group_users
   has_many :group, through: :group_users
+  has_many :event_users
   has_many :event, through: :event_users
   has_many :comment
 

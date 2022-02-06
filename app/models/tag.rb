@@ -1,6 +1,8 @@
 class Tag < ApplicationRecord
 # Relationships
+  has_many :group_tags
   has_many :group, through: :group_tags
+  has_many :event_tags
   has_many :event, through: :event_tags
   
 # Scopes

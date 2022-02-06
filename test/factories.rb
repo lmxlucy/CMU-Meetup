@@ -26,6 +26,7 @@ FactoryBot.define do
     description {"Already have 2, want 2 more to join our trip. Cost: $70 per person including accomodation and transportation"}
     start_time {Time.new(2022,2,19, 9, 30, 00, 0)}
     end_time {Time.new(2022,2,20, 20, 30, 00, 0)}
+    image {"https://www.msrgear.com/blog/wp-content/uploads/2016/01/20171221_MSR_SS_1_DSC6658_marquee.jpg"}
   end
 
   factory :event_user do

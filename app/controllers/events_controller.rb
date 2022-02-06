@@ -4,11 +4,14 @@ class EventsController < ApplicationController
   # GET /events or /events.json
   def index
     @events = Event.all
+    @num_attendees = EventUser.for_event(@event).count
+    @tags = EventTag.for_event(@event).find
   end
 
   # GET /events/1 or /events/1.json
   def show
     @num_attendees = EventUser.for_event(@event).count
+    @event_organizer = @event.event_users.find { |event_user| event_user.is_organizer }.user
   end
 
   # GET /events/new

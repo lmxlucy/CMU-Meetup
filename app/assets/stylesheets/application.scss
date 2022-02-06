@@ -57,6 +57,18 @@ strong {
     padding: 20px;
 }
 
+// event index styling
+.class-summary-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.event-summary-card {
+    min-width: 300px;
+    height: 300px;
+    background: black;
+}
+
 // event show styling
 #page-wrapper {
     background-color: rgb(216, 216, 216);
@@ -66,6 +78,7 @@ strong {
     background-color: white;
     border-radius: 0 0 20px 20px;
     padding: 20px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.247);
 }
 
 #content {
@@ -76,4 +89,26 @@ strong {
     padding: 20px;
     background-color: white;
     border-radius: 20px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 500px;
+    border-radius: 20px;
+}
+.card .material-icons {
+    position: relative;
+    top: 5px;
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+}
+
+.btn {
+    border-radius: 20px;
+    color: black;
+    letter-spacing: 0;
+    margin-right: 10px;
 }
