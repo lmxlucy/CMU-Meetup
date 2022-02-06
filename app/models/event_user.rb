@@ -6,5 +6,5 @@ class EventUser < ApplicationRecord
   scope :for_attendee,   ->(user) { where(user: user, is_organizer: false) }
   scope :for_organizer,  ->(user) { where(user: user, is_organizer: true) }
 
-  validates_presence_of :is_organizer, :event_id, :user_id
+  validates_presence_of :event_id, :user_id
 end

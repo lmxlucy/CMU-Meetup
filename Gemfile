@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 
 ruby '2.6.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.6'
+gem 'rails', '5.2.4.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -15,14 +16,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-
-# Other gems
-gem 'validates_timeliness', '4.0.2'
-gem 'time_date_helpers', '0.0.4'
-gem 'materialize-sass', '1.0.0'
-gem 'simple_form', '5.1.0'
-gem 'materialize-form', git: 'https://github.com/cmu-is-projects/materialize-form.git'
-gem 'will_paginate', '3.3.0'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -41,12 +34,43 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Other gems
+gem 'validates_timeliness', '4.0.2'
+gem 'time_date_helpers', '0.0.4'
+gem 'materialize-sass', '1.0.0'
+gem 'simple_form', '5.1.0'
+gem 'materialize-form', git: 'https://github.com/cmu-is-projects/materialize-form.git'
+gem 'will_paginate', '3.3.0'
+gem 'jquery-rails', '4.3.1'
+gem 'jquery-ui-rails', '6.0.1'
+
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Adds support for Capybara system testing and webdrivers
+  gem 'capybara', '>= 2.15'
+  gem 'webdrivers'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'hirb'
+  gem 'faker'
+  gem 'populator'
+  gem 'factory_bot_rails', '6.1.0'
+  gem 'simplecov'
+  gem 'shoulda', '3.5.0'
+  gem 'shoulda-matchers', '2.8.0'
+  gem 'minitest', '5.14.2'
+  gem 'minitest-rails', '3.0.0'
+  gem 'minitest-reporters', '1.1.19'
+  gem 'rails-controller-testing', '1.0.5'
+  gem 'cucumber-rails', '2.2.0', require: false
+  gem 'database_cleaner', '1.8.5'
+  gem 'launchy', '2.5.0'
 end
 
 group :development do
@@ -56,16 +80,13 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'populator'
-  gem 'factory_bot_rails', '6.1.0'
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  # gem 'chromedriver-helper'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
