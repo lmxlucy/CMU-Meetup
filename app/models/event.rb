@@ -22,5 +22,5 @@ class Event < ApplicationRecord
 # Validations
   validates_presence_of :title, :description, :start_time, :end_time
   validates_date :start_time, on_or_after: ->{ Time.current }, on_or_after_message: "cannot be in the past"
-  validates_date :end_time, on_or_after: ->{ Time.current }, on_or_after_message: "cannot be in the past"
+  validates_date :end_time, on_or_after: ->{ :start_time }, on_or_after_message: "cannot be before start_time"
 end

@@ -17,20 +17,31 @@
 
   <div class="row"> 
 
-    <div class="col s9">
+    <div class="col s8">
+      
+      <img src=<%=@event.image%> alt=<%=@event.title%>>
+
       <p>
         <h3>Details</h3>
         <%= @event.description %>
       </p>
 
-      <p>
-        <strong>Limit:</strong>
-        <%= @event.limit %>
-      </p>
     </div>
 
-    <div id="col s3">
-      <h2><%= @event.title %></h2>
+    <div class="col s4">
+      <div class="card">
+        <h3><%= @event.title %></h3>
+        <p>Hosted by <%=@event_organizer%></p> 
+      </div>
+
+      <div class="card">
+        <p><%=@event.start_time.strftime("%B %d, %Y")%></p>
+        <p>
+          <span class="material-icons-outlined">place</span>
+          <%=@event.location%>
+        </p>
+        <p><%=@num_attendees%> attendees</p>
+      </div>
       
     </div>
 

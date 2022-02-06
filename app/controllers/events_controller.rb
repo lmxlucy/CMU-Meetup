@@ -8,6 +8,7 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    @num_attendees = EventUser.for_event(@event).count
   end
 
   # GET /events/new

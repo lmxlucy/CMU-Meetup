@@ -44,6 +44,11 @@ gem 'will_paginate', '3.3.0'
 gem 'jquery-rails', '4.3.1'
 gem 'jquery-ui-rails', '6.0.1'
 
+gem 'omniauth'
+gem 'dotenv-rails'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection', '~> 0.1'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
