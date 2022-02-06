@@ -7,11 +7,11 @@ class Event < ApplicationRecord
 
 # Scopes
   # future: return all current/future events
-  scope :future, -> { where('date >=?', Time.current)}
+  scope :future, -> { where('end_time >=?', Time.current)}
   # past: return all past events
-  scope :past, -> { where('date <?', Time.current)}
+  scope :past, -> { where('end_time <?', Time.current)}
   # chronological: order chronologically
-  scope :chronological, -> { order(:date) }
+  scope :chronological, -> { order(:start_time) }
   # full: return events that are full
   scope :full, -> { where('limit <=?', self.event_users.count) }
   # available: return events that can accept more participants 
@@ -20,7 +20,7 @@ class Event < ApplicationRecord
   scope :for_group, ->(group) { where(group: group) }
 
 # Validations
-  validates_presence_of :title, :description, :date
-  validates_date :date, on_or_after: ->{ Time.current }, on_or_after_message: "cannot be in the past"
-
+  validates_presence_of :title, :description, :start_time, :end_time
+  validates_date :start_time, on_or_after: ->{ Time.current }, on_or_after_message: "cannot be in the past"
+  validates_date :end_time, on_or_after: ->{ Time.current }, on_or_after_message: "cannot be in the past"
 end
