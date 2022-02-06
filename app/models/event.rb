@@ -20,7 +20,9 @@ class Event < ApplicationRecord
   scope :for_group, ->(group) { where(group: group) }
 
 # Validations
-  validates_presence_of :title, :description, :date
-  validates_date :date, on_or_after: ->{ Time.current }, on_or_after_message: "cannot be in the past"
+  validates_presence_of :title, :description, :start_time, :end_time
+  # validates_date :start_time, on_or_after: ->{ Time.current }, on_or_after_message: "cannot be in the past"
+  # validates_date :end_time, on_or_after: ->{ :start_time }, on_or_after_message: "cannot be before start date"
+
 
 end

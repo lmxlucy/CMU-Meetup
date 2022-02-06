@@ -22,8 +22,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :date %>
-    <%= form.time_select :date %>
+    <%= form.label :start_time %>
+    <%= time_field("event", "start_time", min: Date.today)%>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_time %>
+    <%= time_field("event", "end_time", min: Date.today)%>
   </div>
 
   <div class="field">

@@ -5,7 +5,7 @@
     <%= link_to 'Edit', edit_event_path(@event) %> |
     <%= link_to 'Back', events_path %>
 
-    <p><%=@event.date.strftime("%B %d, %Y")%></p>
+    <p><%=@event.start_time.strftime("%B %d, %Y")%></p>
     <h1><%= @event.title %></h1>
 
     <p>
